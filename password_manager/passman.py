@@ -1,8 +1,9 @@
-import random
+import secrets
 import string
 import types
 
 
+# Random password generator
 def random_password(length, upper=True, lower=True, numbers=True, symbols=True):
     """
         Generate a random password of the given length using allowed characters.
@@ -31,20 +32,25 @@ def random_password(length, upper=True, lower=True, numbers=True, symbols=True):
     characters = []
     if upper:
         # Add upper case letters
-        pass
+        characters.append(string.ascii_uppercase)
 
     if lower:
         # Add lower case letters
-        pass
+        characters.append(string.ascii_lowercase)
 
     if numbers:
         # Add numbers
-        pass
+        characters.append(string.digits)
 
     if isinstance(symbols, types.BooleanType):
         # Add all symbols
-        pass
+        characters.append(string.punctuation)
 
     elif isinstance(symbols, types.ListType):
         # Add specified symbols
-        pass
+        characters += symbols
+
+    # Generate a random choice of characters
+    pswd = [secrets.choice(characters) for c in range(length)]
+
+    return ''.join(pswd)
