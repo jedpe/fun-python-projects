@@ -39,7 +39,7 @@ dot_in(t, 0, 0)  # Go home
 
 # Start the game
 turtle.pen(pensize=0.0001)
-for iteration in range(1000000):
+for iteration in range(500000):
     # Print the iteration number
     print(f"Current iteration: {iteration}")
 
